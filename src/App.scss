@@ -1,0 +1,141 @@
+//home
+.home {
+  position: relative;
+
+  .logo {
+    position: absolute;
+    top: 5vh;
+    right: 2%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .homeImg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+  }
+
+  .searchDiv-home,
+  .searchDiv-product {
+    position: relative;
+    text-align: center;
+    top: 18vh;
+
+    .inp-home,
+    .inp-product {
+      position: relative;
+      border: 1px solid white;
+      border-radius: 6px;
+      width: 50%;
+      height: 2.5rem;
+      font-family: Inter, sans-serif;
+      font-size: 1.25rem;
+      background-color: white;
+      background-image: url("./assets/images/search.png");
+      background-repeat: no-repeat;
+      background-position: 96% 50%;
+      background-size: 20px 20px;
+      padding: 1rem;
+      outline: none;
+    }
+  }
+
+  .searchDiv-product {
+    top: 5vh;
+
+    .inp-product {
+      border-color: #dbdbdb;
+    }
+  }
+
+  .visibleContainer {
+    position: absolute;
+    background-color: white;
+    width: max-content;
+    margin-top: 1rem;
+    padding: 0 1.75rem 1rem 1.75rem;
+    text-align: left;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .gridContainer {
+      position: relative;
+      display: flex;
+      gap: 2rem;
+      margin-top: 0.75rem;
+
+      .gridItem {
+        text-align: left;
+        text-decoration: none;
+
+        &:hover {
+          opacity: 0.8;
+          text-align: left;
+          text-decoration: none;
+        }
+
+        .searchImg {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    .visText {
+      font-family: Inter, sans-serif;
+      font-size: 1.25rem;
+      line-height: 26.59px;
+      font-weight: 500;
+    }
+
+    .visTitle {
+      color: black;
+      font-family: Inter, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      text-decoration: none;
+      display: block;
+      line-height: 1.5rem;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  @media (max-width: 872px) {
+    .logo {
+      width: 3rem;
+      height: auto;
+    }
+
+    .searchDiv-home {
+      top: 10vh;
+
+      .visibleContainer {
+        width: 92%;
+        padding: 8px;
+
+        .gridContainer {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          margin-top: 1rem;
+
+          .searchImg {
+            max-width: 15vw;
+            height: auto;
+          }
+
+          .gridItem {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

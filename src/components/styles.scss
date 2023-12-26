@@ -1,0 +1,149 @@
+//accordian
+.accordion-item {
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  padding: 5px 2px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+}
+
+.icon {
+  font-size: 16px;
+  transition: transform 0.3s;
+}
+
+.open .icon {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  font-family: "Inter", sans-serif;
+}
+
+//search
+.inp {
+  position: relative;
+  border: 1px solid white;
+  border-radius: 6px;
+  width: 50%;
+  height: 3rem;
+  font-family: Inter, sans-serif;
+  font-size: 1.25rem;
+  background-color: white;
+  background-image: url("../assets/images/search.png");
+  background-repeat: no-repeat;
+  background-position: 96% 50%;
+  background-size: 20px 20px;
+  padding: 1rem;
+  outline: none;
+}
+
+//sidebar
+.sidebarFilter {
+  width: 25%;
+}
+
+.searchHeading {
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.filter-section {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+}
+
+/* Add styles to show the accordion content when active */
+.filter-section.active {
+  max-height: 500px; /* Adjust this value based on your content height */
+}
+
+/* Add styles for the accordion section header */
+.filter-section h4 {
+  cursor: pointer;
+}
+
+/* Add styles to hide the accordion content by default */
+.filter-section-content {
+  display: none;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+}
+
+/* Add styles to show the accordion content when active */
+.filter-section-content.active {
+  display: block;
+  max-height: 500px; /* Adjust this value based on your content height */
+}
+
+//product list
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap");
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.grid-item {
+  position: relative;
+  /* border: 1px solid #ccc; */
+  /* padding: 16px; */
+  text-align: center;
+}
+
+/* .grid-image {
+    max-width: 100%;
+    height: auto;
+    width: 100%; 
+    max-height: 200px; 
+    object-fit: cover; 
+  } */
+
+.image-container {
+  width: 100%; /* Set a fixed width for the container */
+  max-height: 200px; /* Set a maximum height for the container (adjust as needed) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Hide any overflow */
+}
+
+.grid-image {
+  width: 100%;
+  height: auto;
+}
+
+.likeBtn {
+  position: absolute;
+  right: 8px;
+  top: 4px;
+  border: none;
+  background-color: transparent;
+}
+
+.product-title,
+.product-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  max-height: 2.8em; /* Adjust as needed */
+}
+
+/* Limit the maximum number of columns to 3 */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
