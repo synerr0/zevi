@@ -4,7 +4,7 @@ import home1 from "../../assets/images/Home1.jpg";
 import logo from "../../assets/images/logo.png";
 import { faker } from "@faker-js/faker";
 import { Link } from "react-router-dom";
-import Search from "../../components/Search/Search.tsx";
+import Search from "../../components/Search/Search";
 
 const Home: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);

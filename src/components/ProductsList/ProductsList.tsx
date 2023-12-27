@@ -3,7 +3,7 @@ import { faker } from "@faker-js/faker";
 import { useEffect, useState } from "react";
 import "../styles.scss";
 
-const generateStars = (rating) => {
+const generateStars = (rating: number) => {
   const starIcon = (
     <img
       width="20"

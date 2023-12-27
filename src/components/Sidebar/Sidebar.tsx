@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AccordionItem from "../Accodian/Accordian.tsx";
+import AccordionItem from "../Accodian/Accordian";
 import "../styles.scss";
 
 interface SidebarFilterProps {

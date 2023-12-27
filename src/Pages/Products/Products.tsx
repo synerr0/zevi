@@ -1,11 +1,11 @@
 import React from "react";
 import '../../App.scss';
 import logo from "../../assets/images/logo.png";
-import ProductList from "../../components/ProductsList/ProductsList.tsx";
-import SidebarFilter from "../../components/Sidebar/Sidebar.tsx";
-import Search from "../../components/Search/Search.tsx";
+import ProductList from "../../components/ProductsList/ProductsList";
+import SidebarFilter from "../../components/Sidebar/Sidebar";
+import Search from "../../components/Search/Search";
 
-const generateStars = (rating) => {
+const generateStars = (rating: number) => {
   const yellowStarIcon = (
     <img
       width="20"
