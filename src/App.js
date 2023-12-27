@@ -1,7 +1,6 @@
-import logo from "./logo.svg";
-import Home from "./Pages/Home/Home";
+import Home from "./Pages/Home/Home.tsx";
 import { Route, Routes } from "react-router-dom";
-import Products from "./Pages/Products/Products";
+import Products from "./Pages/Products/Products.tsx";
 
 function App() {
   return (

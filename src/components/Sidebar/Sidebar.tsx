@@ -1,27 +1,39 @@
 import React, { useState } from "react";
-import AccordionItem from "../Accodian/Accordian";
+import AccordionItem from "../Accodian/Accordian.tsx";
 import "../styles.scss";
 
-export default function SidebarFilter({ filters, onFilterChange }) {
+interface SidebarFilterProps {
+  filters: {
+    brands: string[];
+    priceRanges: string[];
+    ratings: React.ReactElement[][];
+  };
+  onFilterChange?: (filterType: string, value: string) => void;
+}
+
+const SidebarFilter: React.FC<SidebarFilterProps> = ({
+  filters,
+  onFilterChange,
+}) => {
   const [selectedFilters, setSelectedFilters] = useState({
     brand: "",
     priceRange: "",
-    ratings: "",
+    ratings: [] as string[],
   });
 
-  const handleFilterChange = (filterType, value) => {
+  const handleFilterChange = (filterType: string, value: string) => {
     setSelectedFilters((prevFilters) => ({
       ...prevFilters,
       [filterType]: value,
     }));
+    onFilterChange?.(filterType, value);
   };
-
 
   return (
     <div className="sidebarFilter">
-      <AccordionItem title="Search Results">
+      <AccordionItem title="BRAND">
         {filters.brands.map((brand) => (
-          <div key={brand}>
+          <div className="sidebar-item" key={brand}>
             <label>
               <input
                 type="checkbox"
@@ -35,12 +47,14 @@ export default function SidebarFilter({ filters, onFilterChange }) {
         ))}
       </AccordionItem>
 
+      <hr className="hr"></hr>
+
       <AccordionItem title="PRICE RANGE">
         {filters.priceRanges.map((priceRange) => (
-          <div key={priceRange}>
+          <div className="sidebar-item" key={priceRange}>
             <label>
               <input
-                type="radio"
+                type="checkbox"
                 value={priceRange}
                 checked={selectedFilters.priceRange === priceRange}
                 onChange={() => handleFilterChange("priceRange", priceRange)}
@@ -51,15 +65,17 @@ export default function SidebarFilter({ filters, onFilterChange }) {
         ))}
       </AccordionItem>
 
+      <hr className="hr"></hr>
+
       <AccordionItem title="RATINGS">
-        {filters.ratings.map((rating) => (
-          <div key={rating}>
+        {filters.ratings.map((rating, index) => (
+          <div className="sidebar-item" key={index}>
             <label>
               <input
                 type="checkbox"
-                value={rating}
-                checked={selectedFilters.ratings === rating}
-                onChange={() => handleFilterChange("ratings", rating)}
+                value={index.toString()}
+                checked={selectedFilters.ratings.includes(index.toString())}
+                onChange={() => handleFilterChange("ratings", index.toString())}
               />
               {rating}
             </label>
@@ -68,4 +84,6 @@ export default function SidebarFilter({ filters, onFilterChange }) {
       </AccordionItem>
     </div>
   );
-}
+};
+
+export default SidebarFilter;
